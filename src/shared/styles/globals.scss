@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @apply text-black dark:text-white;
+  }
+}
+
+// Additional styles
+@import "additional-styles/typography.scss";
+@import "additional-styles/utility-patterns.scss";
+@import "additional-styles/theme.scss";
+@import "additional-styles/webkit.scss";
+
+// Page Specific Styles from Old Repo
+@import "additional-styles/home.scss";

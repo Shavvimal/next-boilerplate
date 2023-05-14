@@ -1,0 +1,75 @@
+// Buttons
+.btn,
+.btn-sm {
+  @apply font-medium inline-flex items-center justify-center border border-transparent leading-snug transition duration-150 ease-in-out dark:text-white;
+}
+
+.glass-div {
+  @apply backdrop-filter backdrop-blur-lg bg-opacity-10 shadow-2xl bg-black border border-orange-100 border-opacity-10 border-2 rounded-md;
+}
+
+.grad-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-plum-100 select-none;
+}
+
+.btn {
+  @apply px-8 py-3 shadow-lg;
+}
+
+.btn-sm {
+  @apply px-4 py-2 shadow-none hover:shadow;
+}
+
+// Forms
+label {
+  @apply block text-xs text-gray-600 dark:text-white uppercase;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox,
+.form-radio {
+  @apply border border-white dark:border-dark-950 focus:border-orange-200 dark:focus:border-orange-200;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox,
+.form-radio {
+  &:focus {
+    @apply ring-0;
+  }
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox {
+  @apply rounded;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select {
+  @apply py-3 px-4;
+}
+
+.form-input,
+.form-textarea {
+  @apply placeholder-gray-300 dark:placeholder-gray-600 dark:bg-dark-950 shadow-sm;
+}
+
+.form-select {
+  @apply pr-10;
+}
+
+.form-checkbox,
+.form-radio {
+  @apply text-gray-800 rounded-sm;
+}

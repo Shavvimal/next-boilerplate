@@ -1,0 +1,57 @@
+#Page {
+  @apply bg-col flex w-screen min-h-screen flex-col;
+}
+
+#HomeContainer {
+  padding: 0px 10px 10px 0px;
+  @apply flex flex-col flex-grow;
+}
+
+#HomeHeader {
+  gap: 20px;
+  @apply flex items-center h-12;
+}
+
+#MiddleGrow {
+  @apply flex flex-grow justify-center;
+}
+
+#Avatar {
+  @apply w-8 h-8;
+  background: linear-gradient(
+    89.9deg,
+    rgba(24, 24, 26, 0.48) -1.09%,
+    rgba(24, 24, 30, 0.48) 100%
+  );
+  border-radius: 100%;
+}
+
+#FullscreenButton {
+  @apply flex items-center justify-center cursor-pointer;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+#ItemConfig {
+  @apply flex items-center justify-center cursor-pointer;
+}
+
+#HomeContent {
+  @apply flex flex-grow;
+}
+
+#HomeGridContainer {
+  background: url("/home-grid-bg.png");
+  @apply flex-grow bg-no-repeat flex;
+  background-size: max(100%, 1830px) 100%;
+  background-position: center center;
+  border-radius: 16px;
+}
+
+#HomeGridLogo {
+  @apply flex flex-grow bg-no-repeat bg-center;
+  //   background-image: url(assets/svg/home_logo_bg.svg);
+  background-size: 40vh;
+}
