@@ -1,52 +1,80 @@
 import "@/styles/globals.scss";
-import { Rubik } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import { Inter, Roboto_Slab } from "next/font/google";
+// Components
 import Toaster from "@/components/Toaster";
 
-const rubik = Rubik({ subsets: ["latin"] });
+const fontSans = Roboto_Slab({ subsets: ["latin"], variable: "--font-sans" });
 
 /*
 You should not manually add <head> tags such as <title> and <meta> to root layouts. Instead, you should use the Metadata API which automatically handles advanced requirements such as streaming and de-duplicating <head> elements. 
 */
 
-export const metadata = {
-  title: "Shav Dev",
-  metadataBase: new URL("https://shav.dev"),
-  description:
-    "Quadra is the ultimate solution for investors; with advanced algorithmic order execution, centralized risk management, and a complete portfolio management system, you'll have everything you need to succeed. Master the Crypto Markets with Quadra: Multi-Asset Multi-Exchange Portfolio Management & Execution.",
-  alternates: {
-    canonical: "/",
-    languages: {
-      "en-US": "/en-US",
-      "pt-BR": "/pt-BR",
-    },
+export const metadata: Metadata = {
+  title: {
+    default: "Shav Vimalendiran",
+    template: "%s | Shav Vimalendiran",
   },
+  metadataBase: new URL("https://shav.dev"),
+  description: "AI, Machine Learning, Developer.",
   openGraph: {
-    title: "Quadra",
-    url: "https://quadra.trade",
+    title: "Shav Vimalendiran",
+    description: "AI, Machine Learning, Developer.",
+    url: "https://shav.dev",
+    siteName: "Shav Vimalendiran",
     images: [
       {
-        url: "https://d3i7fbcjmpexee.cloudfront.net/screens/orderbook_trade.png",
-        width: 800,
-        height: 600,
+        url: "https://shav.dev/og.jpg",
+        width: 1920,
+        height: 1080,
       },
     ],
+    locale: "en-US",
+    type: "website",
   },
   robots: {
     index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    title: "Shav Vimalendiran",
+    card: "summary_large_image",
+  },
+  icons: {
+    shortcut: "/favicon.svg",
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <link rel="icon" href="/favicon.svg" />
-      <body className={rubik.className}>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
         <Toaster />
-        {children}
+        <main>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </main>
       </body>
     </html>
   );

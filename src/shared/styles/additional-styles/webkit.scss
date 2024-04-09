@@ -1,43 +1,38 @@
 // Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive
-@layer utilities {
-  .dark-autofill {
-    -webkit-text-fill-color: #fff !important;
-  }
-  .light-autofill {
-    -webkit-text-fill-color: #000 !important;
-  }
-}
 
 // Webkit Utilities
+/* Text Selection Colour  */
+::-moz-selection {
+  background-color: #fff;
+  color: black;
+}
+::-webkit-selection {
+  background-color: #fff;
+  color: black;
+}
+::selection {
+  background-color: #fff;
+  color: black;
+}
 
 /* Scrollbar Edit  */
 /* width */
 ::-webkit-scrollbar {
   width: 3px;
   height: 0px;
+  background-color: #09090b;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #f2810e;
+  background: #06b6d4;
   opacity: 0.5;
   border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #d04f36;
-}
-
-/* Text Selection Colour  */
-::-moz-selection {
-  background: #f88e08;
-}
-::-webkit-selection {
-  background: #f88e08;
-}
-::selection {
-  background: #f88e08;
+  background: #0891b2;
 }
 
 input:-webkit-autofill,
@@ -45,5 +40,6 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s;
-  @apply light-autofill dark:dark-autofill;
+  -webkit-text-fill-color: #fff !important;
 }
+

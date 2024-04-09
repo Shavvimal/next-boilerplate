@@ -1,27 +1,75 @@
+@layer base {
+  .text-edge-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  }
+}
+
 // Typography
 h1 {
-  @apply not-italic text-4xl font-extrabold leading-tight tracking-tighter dark:text-white;
+  @apply font-sans not-italic text-4xl font-extrabold leading-relaxed tracking-normal text-white;
 }
 
 h2 {
-  @apply not-italic text-3xl font-extrabold leading-tight tracking-tighter dark:text-white;
+  @apply font-sans not-italic text-3xl font-extrabold leading-relaxed tracking-normal text-white;
 }
 
 h3 {
-  @apply not-italic font-normal text-3xl leading-10 dark:text-white;
+  @apply font-sans not-italic font-normal text-3xl leading-relaxed text-white;
   letter-spacing: 1px;
 }
 
 h4 {
-  @apply not-italic font-normal text-lg leading-6 dark:text-white;
+  @apply font-sans not-italic font-normal text-lg leading-relaxed text-white;
   letter-spacing: 0.4px;
 }
 
 h5 {
-  @apply not-italic font-medium text-base leading-6 dark:text-white;
+  @apply font-sans not-italic font-medium text-base leading-relaxed text-white;
   letter-spacing: 0.4px;
 }
 
 p {
-  @apply text-sm text-gray-500 leading-snug tracking-tight dark:text-white;
+  @apply font-sans text-base text-black leading-relaxed tracking-normal text-white;
+}
+
+/* text-stroke */
+.text-stroke {
+  -webkit-text-stroke: 2px #f7f7f7;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-stroke-sm {
+  -webkit-text-stroke: 1px #f7f7f7;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Anim Underline */
+.fx-underline {
+  position: relative;
+}
+.fx-underline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 97%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0%);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.fx-underline::before {
+  transform-origin: 100% 0;
+}
+.fx-underline:hover::before,
+.Active::before {
+  transform: scaleX(100%);
+  transform-origin: 0 0;
+}
+
+.link {
+  @apply underline decoration-cyan-500 underline-offset-4 decoration-[0.1em] hover:text-cyan-600 transition-all;
 }
