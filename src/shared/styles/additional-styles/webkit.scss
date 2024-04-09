@@ -3,29 +3,26 @@
 // Webkit Utilities
 /* Text Selection Colour  */
 ::-moz-selection {
-  background-color: #fff;
-  color: black;
+  @apply bg-black text-white dark:bg-white dark:text-black 
 }
 ::-webkit-selection {
-  background-color: #fff;
-  color: black;
+  @apply bg-black text-white dark:bg-white dark:text-black
 }
 ::selection {
-  background-color: #fff;
-  color: black;
+  @apply bg-black text-white dark:bg-white dark:text-black
 }
 
 /* Scrollbar Edit  */
 /* width */
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 5px;
   height: 0px;
-  background-color: #09090b;
+
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #06b6d4;
+  @apply bg-gray-300 dark:bg-gray-600;
   opacity: 0.5;
   border-radius: 50px;
 }

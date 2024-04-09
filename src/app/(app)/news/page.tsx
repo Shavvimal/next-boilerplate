@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ModeToggle } from "@/components/ThemeToggle";
+import { ModeToggle } from "@/components/mode-toggle";
 
 function IntroductionSection() {
   return (
@@ -23,7 +23,7 @@ function IntroductionSection() {
         </div>
 
         <p className="text-center md:text-left leading-relaxed tracking-normal">
-          Hey 👋, I&apos;m Shav - a Full-Stack Data Scientist, AWS Certified
+          Heys 👋, I&apos;m Shav - a Full-Stack Data Scientist, AWS Certified
           Machine Learning Specialist, and an aspiring entrepreneur. I
           specialize in crafting solutions in MLOps & software architecture,
           having been focused on scalable data streaming stacks optimized for

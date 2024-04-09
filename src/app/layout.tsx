@@ -2,11 +2,12 @@ import "@/styles/globals.scss";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Roboto_Slab } from "next/font/google";
 // Components
-import Toaster from "@/components/Toaster";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { siteConfig } from "@/config/site";
+import { Toaster } from "@/components/toaster";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const fontRobotoSlab = Roboto_Slab({
   subsets: ["latin"],
@@ -26,25 +27,33 @@ You should not manually add <head> tags such as <title> and <meta> to root layou
 
 export const metadata: Metadata = {
   title: {
-    default: "Shav Vimalendiran",
-    template: "%s | Shav Vimalendiran",
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  metadataBase: new URL("https://shav.dev"),
-  description: "AI, Machine Learning, Developer.",
+  metadataBase: new URL(siteConfig.url),
+  description: siteConfig.description,
+  keywords: ["AI", "News", "Updates"],
+  authors: [
+    {
+      name: "Shav Vimalendiran",
+      url: "https://shav.dev",
+    },
+  ],
   openGraph: {
-    title: "Shav Vimalendiran",
-    description: "AI, Machine Learning, Developer.",
-    url: "https://shav.dev",
-    siteName: "Shav Vimalendiran",
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
     images: [
       {
-        url: "https://shav.dev/og.jpg",
-        width: 1920,
-        height: 1080,
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
       },
     ],
-    locale: "en-US",
-    type: "website",
   },
   robots: {
     index: true,
@@ -58,12 +67,23 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Shav Vimalendiran",
     card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@shavtge",
   },
   icons: {
     shortcut: "/favicon.svg",
   },
+  manifest: `${siteConfig.url}/site.webmanifest`,
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
 };
 
 export default function RootLayout({
@@ -72,7 +92,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.svg" />
       <body
         className={cn(
@@ -81,19 +101,21 @@ export default function RootLayout({
           fontSpaceGrotesk.variable
         )}
       >
-        <Toaster />
-        <main>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div vaul-drawer-wrapper="">
+            <div className="relative flex min-h-screen flex-col bg-background">
+              {children}
+            </div>
+          </div>
+          <Toaster />
           <Analytics />
           <SpeedInsights />
-        </main>
+        </ThemeProvider>
       </body>
     </html>
   );

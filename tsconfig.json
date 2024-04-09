@@ -20,9 +20,10 @@
     "paths": {
       "@/assets/*": ["./src/shared/assets/*"],
       "@/components/*": ["./src/shared/components/*"],
+      "@/config/*": ["./src/shared/config/*"],
       "@/lib/*": ["./src/shared/lib/*"],
       "@/styles/*": ["./src/shared/styles/*"],
-      "@/types/*": ["./src/shared/types/*"]
+      "@/types/*": ["./src/shared/types/*"],
     }
   },
   "include": ["svgr.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
