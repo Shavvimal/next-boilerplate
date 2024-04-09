@@ -3,11 +3,22 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter, Roboto_Slab } from "next/font/google";
+import { Space_Grotesk, Roboto_Slab } from "next/font/google";
 // Components
 import Toaster from "@/components/Toaster";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-const fontSans = Roboto_Slab({ subsets: ["latin"], variable: "--font-sans" });
+const fontRobotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  variable: "--font-roboto-slab",
+});
+
+const fontSpaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+  adjustFontFallback: false,
+});
 
 /*
 You should not manually add <head> tags such as <title> and <meta> to root layouts. Instead, you should use the Metadata API which automatically handles advanced requirements such as streaming and de-duplicating <head> elements. 
@@ -66,12 +77,20 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontRobotoSlab.variable,
+          fontSpaceGrotesk.variable
         )}
       >
         <Toaster />
         <main>
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
           <Analytics />
           <SpeedInsights />
         </main>

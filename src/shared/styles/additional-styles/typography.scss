@@ -6,30 +6,30 @@
 
 // Typography
 h1 {
-  @apply font-sans not-italic text-4xl font-extrabold leading-relaxed tracking-normal text-white;
+  @apply font-sans not-italic text-4xl font-extrabold leading-relaxed tracking-normal ;
 }
 
 h2 {
-  @apply font-sans not-italic text-3xl font-extrabold leading-relaxed tracking-normal text-white;
+  @apply font-sans not-italic text-3xl font-extrabold leading-relaxed tracking-normal ;
 }
 
 h3 {
-  @apply font-sans not-italic font-normal text-3xl leading-relaxed text-white;
+  @apply font-sans not-italic font-normal text-3xl leading-relaxed ;
   letter-spacing: 1px;
 }
 
 h4 {
-  @apply font-sans not-italic font-normal text-lg leading-relaxed text-white;
+  @apply font-sans not-italic font-normal text-lg leading-relaxed ;
   letter-spacing: 0.4px;
 }
 
 h5 {
-  @apply font-sans not-italic font-medium text-base leading-relaxed text-white;
+  @apply font-sans not-italic font-medium text-base leading-relaxed ;
   letter-spacing: 0.4px;
 }
 
 p {
-  @apply font-sans text-base text-black leading-relaxed tracking-normal text-white;
+  @apply font-sans text-base leading-relaxed tracking-normal ;
 }
 
 /* text-stroke */
